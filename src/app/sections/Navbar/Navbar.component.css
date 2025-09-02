@@ -1,0 +1,11 @@
+.mobile-nav {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.mobile-nav.open {
+  max-height: 500px; /* adjust to fit your menu */
+  opacity: 1;
+}

@@ -1,0 +1,40 @@
+<div class="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
+  <div class="mx-auto c-space max-w-7xl">
+    <div class="flex item-center justify-between py-2 sm:py-0">
+      <a
+        href="/" class="text-xl font-bold transition-colors text-neutral-400 hover:text-white" >
+        Arshad
+      </a>
+      <button (click)="is_open = !is_open" class="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden" >
+        <img [src]="is_open ? 'assets/close.svg' : 'assets/menu.svg'" class="w-6 h-6" alt="Menu Icon"/>
+      </button>
+      <nav class="hidden sm:flex">
+        <ng-container *ngTemplateOutlet="NavigationItems"></ng-container>
+      </nav>
+    </div>
+  </div>
+
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav sm:hidden" [class.open]="is_open">
+    <ng-container *ngTemplateOutlet="NavigationItems"></ng-container>
+  </nav>
+
+</div>
+
+<ng-template #NavigationItems>
+  <ul class="nav-ul text-center">
+    <li class="nav-li">
+      <a class="nav-link" href="#home"> Home </a>
+    </li>
+    <li class="nav-li">
+      <a class="nav-link" href="#about"> About </a>
+    </li>
+    <li class="nav-li">
+      <a class="nav-link" href="#Work"> Work </a>
+    </li>
+    <li class="nav-li">
+      <a class="nav-link" href="#contact"> Contact </a>
+    </li>
+  </ul>
+</ng-template>
