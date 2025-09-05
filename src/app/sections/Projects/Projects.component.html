@@ -4,10 +4,15 @@
     class="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full"
   >
     <ng-container *ngFor="let project of myProjects">
-      <app-Project [project]="project"></app-Project>
+      <app-Project 
+        [project]="project"
+        (click)="hover_project = false"
+        (mouseenter)="hover_project = true; hover_project_image = project.image"
+        (mouseleave)="hover_project = false; hover_project_image = ''"
+      ></app-Project>
     </ng-container>
   </div>
-  <img
+  <img #follower [class.opacity-0]="!hover_project" [src]="hover_project_image" alt="project image"
     class="fixed top-0 left-0 z-50 object-cover h-56 rounded-lg shadow-lg
     pointer-events-none w-80"
   />
