@@ -1,0 +1,4 @@
+canvas {
+  contain: layout paint size;
+  cursor: grab;
+}

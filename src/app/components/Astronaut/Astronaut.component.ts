@@ -10,6 +10,7 @@ import {
 import { CommonModule } from '@angular/common';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { animate } from 'motion';
 
 @Component({
@@ -30,6 +31,7 @@ export class AstronautComponent implements AfterViewInit, OnDestroy {
   private astronautModel!: THREE.Group;
   private mixer!: THREE.AnimationMixer;
   private animationId!: number;
+  private controls!: OrbitControls;
 
   // Reactive mobile detection
   private isMobile = signal(window.innerWidth < 768);
@@ -37,8 +39,8 @@ export class AstronautComponent implements AfterViewInit, OnDestroy {
   // Hardcoded positions and rotations
   private modelPosition = computed(() => {
     return this.isMobile()
-      ? { x: 0, y: 0, z: 0 } // Mobile position
-      : { x: 1, y: 0.5, z: 0.8 }; // Desktop position
+      ? { x: 0, y: -1.1, z: 0.3 } // Mobile position
+      : { x: 1, y: -0.2, z: 1 }; // Desktop position
   });
 
   private modelRotation = { x: 0, y: Math.PI / 2, z: 0 }; // Hardcoded rotation (45 degrees Y-axis)
@@ -64,6 +66,7 @@ export class AstronautComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     if (this.animationId) cancelAnimationFrame(this.animationId);
     if (this.mixer) this.mixer.stopAllAction();
+    if (this.controls) this.controls.dispose();
     if (this.renderer) this.renderer.dispose();
     window.removeEventListener('resize', this.onResize.bind(this));
   }
@@ -104,6 +107,32 @@ export class AstronautComponent implements AfterViewInit, OnDestroy {
 
     this.scene.add(ambientLight);
     this.scene.add(directionalLight);
+
+    // Setup orbital controls
+    this.setupOrbitControls();
+  }
+
+  private setupOrbitControls() {
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    
+    // Configure controls for rotation only
+    this.controls.enableZoom = false; // Disable zoom
+    this.controls.enablePan = false; // Disable panning
+    this.controls.enableRotate = true; // Enable rotation
+    
+    // Set rotation speed
+    this.controls.rotateSpeed = 0.3;
+    
+    // Set the target to a fixed point in space, not the model's position
+    // This allows the model to appear in different positions while still allowing rotation
+    this.controls.target.set(0, 0, 0);
+    
+    // Damping for smoother controls
+    this.controls.enableDamping = true;
+    this.controls.dampingFactor = 0.05;
+    
+    // Allow right-click context menu
+
   }
 
   private loadModel() {
@@ -145,20 +174,6 @@ export class AstronautComponent implements AfterViewInit, OnDestroy {
     );
   }
 
-  private updateModelPosition() {
-    if (!this.astronautModel) return;
-
-    const pos = this.modelPosition();
-    // Only update position, don't animate here since we handle animation separately
-    this.astronautModel.position.set(pos.x, pos.y, pos.z);
-
-    // Update rotation
-    this.astronautModel.rotation.set(
-      this.modelRotation.x,
-      this.modelRotation.y,
-      this.modelRotation.z
-    );
-  }
 
   private animateModelEntrance() {
     if (!this.astronautModel) return;
@@ -185,6 +200,16 @@ export class AstronautComponent implements AfterViewInit, OnDestroy {
 
   private animate() {
     this.animationId = requestAnimationFrame(() => this.animate());
+
+    // Add default rotation to the astronaut model
+    if (this.astronautModel) {
+      this.astronautModel.rotation.y += 0.005; // Slow rotation around Y-axis
+    }
+
+    // Update orbital controls
+    if (this.controls) {
+      this.controls.update();
+    }
 
     // Update animations
     if (this.mixer) {

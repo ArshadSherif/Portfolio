@@ -1,0 +1,111 @@
+<section class="c-space section-spacing">
+  <h2 class="text-heading">About me</h2>
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
+    <!-- Grid 1 -->
+    <div class="flex items-end grid-default-color grid-1">
+      <img src="assets/coding-pov.png" 
+      class="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10
+      lg:scale-[2.5]">
+
+      <div class="z-10">
+        <p class="headtext">Hi, I'm Arshad</p>
+        <p class="subtext">
+          Over the past 2 years,
+           I've honed my skills in web development,
+            focusing on creating dynamic and responsive websites.
+             My journey began with a passion for coding and a desire to build user-friendly digital experiences.
+              I've worked on various projects that have allowed me to develop a strong foundation in both
+               front-end and back-end technologies.
+        </p>
+      </div>
+
+      <div class="absolute inset-x-0 pointer-events-none flex flex-col items-center justify-end -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t
+      from-indigo"></div>
+
+    </div>
+    <!-- Grid 2 -->
+    <div class="grid-default-color grid-2" #dragContainer>
+      <div class="flex flex-col items-center justify-center w-full h-full relative" >
+        <p class="flex items-center text-5xl text-gray-500"> CODE IS CRAFT</p>
+
+        <app-Card 
+          [display_text]="'GRASP'" 
+          [custom_style]="{ transform: 'rotate(75deg)', top: '30%', left: '20%' }"
+          [dragBoundary]="dragContainer">
+        </app-Card>
+
+        <app-Card 
+          [display_text]="'SOLID'" 
+          [custom_style]="{ transform: 'rotate(-30deg)', top: '60%', left: '45%' }"
+          [dragBoundary]="dragContainer">
+        </app-Card>
+
+        <app-Card 
+          [display_text]="'Design Principles'" 
+          [custom_style]="{ transform: 'rotate(90deg)', bottom: '30%', left: '70%' }"
+          [dragBoundary]="dragContainer"  >
+        </app-Card>
+
+        <app-Card 
+          [display_text]="'Design Patterns'" 
+          [custom_style]="{ transform: 'rotate(-45deg)', top: '55%', left: '-1%' }"
+          [dragBoundary]="dragContainer">
+        </app-Card>
+
+        <app-Card 
+          [display_text]="'SRP'" 
+          [custom_style]="{ transform: 'rotate(20deg)', top: '10%', left: '45%' }"
+          [dragBoundary]="dragContainer">
+        </app-Card>
+
+        <app-Card 
+          [image_src]="'assets/logos/csharp-pink.png'" 
+          [custom_style]="{ transform: 'rotate(20deg)', bottom: '-10%', left: '30%' }"
+          [dragBoundary]="dragContainer">
+        </app-Card>
+
+        <app-Card 
+          [image_src]="'assets/logos/dotnet-pink.png'" 
+          [custom_style]="{ transform: 'rotate(-45deg)', top: '30%', left: '45%' }"
+          [dragBoundary]="dragContainer">
+        </app-Card>
+
+        <app-Card 
+          [image_src]="'assets/logos/blazor-pink.png'" 
+          [custom_style]="{ transform: 'rotate(-45deg)', top: '5%', left: '10%' }"
+          [dragBoundary]="dragContainer">
+        </app-Card>
+        
+
+
+      </div>
+    </div>
+    <!-- Grid 3 -->
+    <div class="grid-black-color grid-3">
+      <div class="z-10 w-[50%]">
+        <p class="headtext">Time Zone</p>
+        <p class="subtext">I'm based in Venus, and open to relocate worldwide </p>
+      </div>
+      <figure class="absolute left-[30%] top-[10%] w-100">
+        <app-globe></app-globe>
+      </figure>
+
+    </div>
+    <!-- Grid 4 -->
+    <div class="grid-special-color grid-4">
+      <div class="flex flex-col items-center justify-center gap-4 size-full">
+        <p class="text-center hedtext">Do you want to start a Project together ?</p>
+        <app-CompyEmailButton></app-CompyEmailButton>
+      </div>
+    </div>
+    <!-- Grid 5 -->
+    <div class="grid-default-color grid-5">
+
+      <div class="absolute inset-y-0 md:inset-y-9 
+      w-full h-full start-[10%] md:scale-125">
+        <app-FrameWorks></app-FrameWorks>
+      </div>
+      
+    </div>
+  </div>
+</section>

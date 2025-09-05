@@ -1,0 +1,19 @@
+<button 
+  (click)="copy_to_clipboard()" 
+  class=" copy-btn relative px-1 py-4 text-sm text-center rounded-full font-extralight 
+  bg-primary w-[12rem] cursor-pointer overflow-hidden"
+  [class.copied]="copied"
+  >
+
+  <p  class=" copy-text flex items-center justify-center gap-2">
+    @if (copied){
+      <img src="assets/copy-done.svg" class="w-6" alt="Copy done"/>
+      Email has been copied
+    } @else {
+      <img src="assets/copy.svg" class="w-5" alt="Copy"/>
+      Copy Email Address
+    }
+  </p>
+
+
+</button>

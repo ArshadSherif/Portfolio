@@ -1,0 +1,15 @@
+@if (image_src && !display_text) {
+  <img
+    [ngStyle]="custom_style" 
+    [src]="image_src" 
+    alt="Card image"
+    class=" draggableEl absolute w-15 cursor-grab" />
+} @else {
+  <div 
+    class=" draggableEl absolute px-1 py-4 text-xl text-center rounded-full 
+           ring ring-grey-700 font-extralight bg-storm 
+           w-[12rem] cursor-grab"
+    [ngStyle]="custom_style">
+    {{ display_text }}
+  </div>
+}

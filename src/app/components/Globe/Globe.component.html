@@ -1,0 +1,16 @@
+<div
+  class="absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]"
+  [class]="className"
+>
+
+>
+  <canvas
+    #canvasRef
+    class="w-full h-full opacity-0 transition-opacity duration-500"
+    (pointerdown)="onPointerDown($event)"
+    (pointermove)="onPointerMove($event)"
+    (pointerup)="onPointerUp($event)"
+    (pointercancel)="onPointerCancel($event)"
+    (pointerout)="onPointerOut($event)"
+  ></canvas>
+</div>
