@@ -1,0 +1,17 @@
+<div class="relative overflow-hidden h-[500px] w-full">
+  <!-- First Orbit -->
+  <app-orbiting-circles
+    [icons]="outer_orbit"
+    [iconSize]="50"
+    [duration]="30">
+  </app-orbiting-circles>
+
+  <!-- Second Orbit -->
+  <app-orbiting-circles
+    [radius]="100"
+    [reverse]="true"
+    [icons]="inner_orbit"
+    [iconSize]="30"
+    [duration]="15">
+  </app-orbiting-circles>
+</div>

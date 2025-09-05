@@ -1,0 +1,31 @@
+<div class="orbiting-container absolute inset-0 flex items-center justify-center">
+  <!-- Path Circle -->
+  @if (path) {
+    <svg xmlns="http://www.w3.org/2000/svg"
+         version="1"
+         class="pointer-events-none absolute inset-0 w-full h-full">
+      <circle
+        class="stroke-black/10 stroke-1 dark:stroke-white/10"
+        cx="50%"
+        cy="50%"
+        [attr.r]="radius"
+        fill="none"/>
+    </svg>
+  }
+
+  <!-- Orbiting Icons -->
+  @for (angle of angles; track angle; let i = $index) {
+    <div
+      class="absolute orbit flex items-center justify-center rounded-full"
+      [class.reverse]="reverse"
+      [ngStyle]="{
+        '--duration': calculatedDuration,
+        '--radius': radius,
+        '--angle': angle,
+        '--icon-size': iconSize + 'px'
+      }"
+    >
+      <img [src]="icons[i]" class="w-full h-full object-contain"/>
+    </div>
+  }
+</div>
