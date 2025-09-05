@@ -1,0 +1,14 @@
+<section class="relative c-space section-spacing">
+  <h2 class="text-heading">My Projects</h2>
+  <div
+    class="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full"
+  >
+    <ng-container *ngFor="let project of myProjects">
+      <app-Project [project]="project"></app-Project>
+    </ng-container>
+  </div>
+  <img
+    class="fixed top-0 left-0 z-50 object-cover h-56 rounded-lg shadow-lg
+    pointer-events-none w-80"
+  />
+</section>

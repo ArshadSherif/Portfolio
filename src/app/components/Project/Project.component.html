@@ -1,0 +1,26 @@
+<div 
+  class="sm:flex flex-wrap items-center justify-between py-10 space-y-14
+  sm:space-y-0">
+  <div>
+    <p class="text-2xl">{{project.title}}</p>
+    <div class="flex gap-5 mt-2 text-sand">
+      <span *ngFor="let tag of project.tags">
+          {{tag.name}}
+      </span>
+    </div>
+  </div>
+
+  <button (click)="is_modal_open = true" class="flex items-center gap-1 cursor-pointer hover-animation">
+    Read More
+    <img class="w-5" src="assets/arrow-right.svg" alt="arrow right" />
+  </button>
+
+</div>
+
+<div class="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full">
+
+</div>
+
+<ng-container *ngIf="is_modal_open">
+  <app-ProjectDetails [project]="project" (close_modal)="is_modal_open = false"></app-ProjectDetails>
+</ng-container>

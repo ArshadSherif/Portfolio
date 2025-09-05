@@ -4,10 +4,11 @@ import { NavbarComponent } from './sections/Navbar/Navbar.component';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { HeroComponent } from "./sections/Hero/Hero.component";
 import { AboutComponent } from "./sections/About/About.component";
+import { ProjectsComponent } from "./sections/Projects/Projects.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, NgTemplateOutlet, CommonModule, HeroComponent, AboutComponent],
+  imports: [RouterOutlet, NavbarComponent, NgTemplateOutlet, CommonModule, HeroComponent, AboutComponent, ProjectsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

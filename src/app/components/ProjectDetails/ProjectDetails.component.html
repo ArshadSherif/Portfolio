@@ -1,0 +1,32 @@
+<div class="fixed inset-0 z-50 flex items-center justify-center
+  w-full h-full overflow-hidden backdrop-blur-sm">
+  <div class="relative max-w-2xl border shadow-sm rounded-2xl
+  bg-gradient-to-l from-midnight to-navy border-white/10 modal-content">
+    <button (click)="close()" class="absolute p-2 rounded-sm top-5 right-5 bg-midnight
+    hover:bg-gray-500">
+      <img src="assets/close.svg" alt="close"  class="w-6 h-6"/>
+    </button>
+    <img src="{{project.image}}" alt="{{project.title}}" class="w-full
+     rounded-t-2xl"/>
+     <div class="p-5">
+      <h5 class="mb-2 text-2xl fondt-bold text-white">{{project.title}}</h5>
+      <p class="mb-3 font-normal text-neutral-400">{{project.description}}</p>
+      <p *ngFor="let sub of project.subDescription" 
+        class="mb-3 font-normal text-neutral-400">
+        {{sub}}
+      </p>
+      <div class="flex items-center justify-between mt-4">
+        <div *ngFor="let tag of project.tags"  class="flex gap-3">
+          <img [src]="tag.path" [alt]="tag.name" 
+          class="rounded-lg size-10 hover-animation" />
+        </div>
+        <a href="{{project.href}}" class="inline-flex items-center gap-1 font-medium 
+        hover-animation cursor-pointer">
+          View Project
+          <img src="assets/arrow-up.svg" class="size-4" />
+        </a>
+      </div>
+     </div>
+
+  </div>
+</div>
