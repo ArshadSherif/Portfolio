@@ -6,10 +6,12 @@ import { HeroComponent } from "./sections/Hero/Hero.component";
 import { AboutComponent } from "./sections/About/About.component";
 import { ProjectsComponent } from "./sections/Projects/Projects.component";
 import { ExperienceComponent } from "./sections/Experience/Experience.component";
+import { ContactComponent } from "./sections/Contact/Contact.component";
+import { FooterComponent } from "./sections/Footer/Footer.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, NgTemplateOutlet, CommonModule, HeroComponent, AboutComponent, ProjectsComponent, ExperienceComponent],
+  imports: [RouterOutlet, NavbarComponent, NgTemplateOutlet, CommonModule, HeroComponent, AboutComponent, ProjectsComponent, ExperienceComponent, ContactComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
