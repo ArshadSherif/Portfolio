@@ -95,12 +95,12 @@ export const mySocials = [
   {
     name: "LeetCode",
     href: "https://leetcode.com/u/am5682/",
-    icon: "/assets/socials/leetcode.svg",
+    icon: "/assets/socials/leetcode.png",
   },
   {
     name: "Email",
     href: "mailto:sherifarshad2003@gmail.com",
-    icon: "/assets/socials/gmail.svg",
+    icon: "/assets/socials/gmail.png",
   },
 ];
 
